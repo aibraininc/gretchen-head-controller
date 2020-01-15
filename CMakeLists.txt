@@ -25,3 +25,11 @@ target_link_libraries(head_hw_interface
    ${catkin_LIBRARIES}
 )
 
+## Declare a C++ executable
+add_executable(head_manual_hw_interface src/head_manual_hw_interface.cpp)
+add_dependencies(head_manual_hw_interface ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(head_manual_hw_interface
+   ${catkin_LIBRARIES}
+)
+
+
