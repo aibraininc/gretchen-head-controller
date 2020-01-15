@@ -10,13 +10,13 @@
 
     <xacro:property name="deg_to_rad" value="0.01745329251994329577" />
     <xacro:property name="base_link_length" value="0.01" />
-    <xacro:property name="base_link_radius" value="0.2" />
+    <xacro:property name="base_link_radius" value="0.1" />
 
-    <xacro:property name="pan_link_length" value="0.1" />
-    <xacro:property name="pan_link_radius" value="0.04" />
+    <xacro:property name="pan_link_length" value="0.15" />
+    <xacro:property name="pan_link_radius" value="0.01" />
 
-    <xacro:property name="tilt_link_length" value="0.2" />
-    <xacro:property name="tilt_link_radius" value="0.04" />
+    <xacro:property name="tilt_link_length" value="0.05" />
+    <xacro:property name="tilt_link_radius" value="0.01" />
 
 
     <xacro:macro name="inertial_matrix" params="mass">
@@ -65,8 +65,8 @@
       <geometry>
          <cylinder length="${pan_link_length}" radius="${pan_link_radius}"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0.09"/>
-      <material name="red">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue">
         <color rgba="0 0 1 1"/>
       </material>
     </visual>
@@ -74,7 +74,7 @@
       <geometry>
          <cylinder length="${pan_link_length}" radius="${pan_link_radius+0.02}"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0.09"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <xacro:inertial_matrix mass="1"/>
   </link>
@@ -82,7 +82,7 @@
   <joint name="tilt_joint" type="revolute">
     <parent link="pan_link"/>
     <child link="tilt_link"/>
-    <origin xyz="0 0 ${pan_link_length}" rpy="${90.0 * deg_to_rad} 0 0"/>
+    <origin xyz="0 0 ${pan_link_length/2}" rpy="${90.0 * deg_to_rad} 0 0"/>
     <axis xyz="0 0 1" />
     <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
     <dynamics damping="50" friction="1"/>
@@ -94,7 +94,7 @@
          <cylinder length="${tilt_link_length}" radius="${tilt_link_radius}"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="green">
+      <material name="red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -144,14 +144,10 @@
 
 
   <xacro:include filename="$(find gretchen_head_controller)/urdf/sensors/xtion_pro_live.urdf.xacro" />
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
 
-  <xacro:xtion_pro_live name="xtion" parent="tilt">
+  <xacro:sensor_d435 parent="tilt_link">
     <origin xyz="${(tilt_link_radius+0)/ 2} 0. 0" rpy="${-90 * deg_to_rad} 0 0" />
-    <!-- optical origin -->
-    <origin xyz="0 0 0" rpy="${-90 * deg_to_rad} ${0 * deg_to_rad} ${-90 * deg_to_rad}" />
-  </xacro:xtion_pro_live>
-
-
-
-
+  </xacro:sensor_d435>
 </robot>
+
