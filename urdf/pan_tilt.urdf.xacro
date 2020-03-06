@@ -143,7 +143,7 @@
   </gazebo>
 
 
-  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+  <xacro:include filename="$(find gretchen_head_controller)/urdf/_d435.urdf.xacro" />
 
   <xacro:sensor_d435 parent="tilt_link">
     <origin xyz="${(tilt_link_radius+0)/ 2} 0. 0" rpy="${-90 * deg_to_rad} 0 0" />

@@ -1,7 +1,7 @@
 <launch>
 
   <!-- start low level motor driver-->
-  <node name="motor_driver" pkg="sensoriboard_ros" type="ros_sensori_driver.py" respawn="false" output="screen"
+  <node name="motor_driver" pkg="sensoriboard_ros" type="ros_sensori_driver_test.py" respawn="false" output="screen"
     ns="/gretchen">
     <remap from="joint/poses" to="/gretchen/joint/poses" />
     <remap from="joint/cmd" to="/gretchen/joint/cmd" />
