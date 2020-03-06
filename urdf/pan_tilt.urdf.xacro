@@ -143,7 +143,6 @@
   </gazebo>
 
 
-  <xacro:include filename="$(find gretchen_head_controller)/urdf/sensors/xtion_pro_live.urdf.xacro" />
   <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
 
   <xacro:sensor_d435 parent="tilt_link">
