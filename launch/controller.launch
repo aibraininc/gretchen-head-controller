@@ -1,7 +1,7 @@
 <launch>
 
   <!-- start low level motor driver-->
-  <node name="motor_driver" pkg="sensoriboard_ros" type="ros_sensori_driver_test.py" respawn="false" output="screen"
+  <node name="motor_driver" pkg="sensoriboard_ros" type="ros_sensori_driver.py" respawn="false" output="screen"
     ns="/gretchen">
     <remap from="joint/poses" to="/gretchen/joint/poses" />
     <remap from="joint/cmd" to="/gretchen/joint/cmd" />
@@ -20,7 +20,7 @@
     output="screen" ns="/gretchen" args="joint_state_controller head_controller"/>
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find gretchen_head_controller)/urdf/pan_tilt.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find gretchen_head_controller)/urdf/pan_tilt.urdf.xacro' use_nominal_extrinsics:=true" />
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
