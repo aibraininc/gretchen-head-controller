@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Axes1
+        - /Marker1
         - /Marker1/Namespaces1
         - /Marker2/Namespaces1
         - /TF1/Frames1
@@ -30,7 +32,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: PointCloud2
+    SyncSource: ""
 Visualization Manager:
   Class: ""
   Displays:
@@ -125,19 +127,18 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/Axes
-      Enabled: false
-      Length: 1
+      Enabled: true
+      Length: 0.300000012
       Name: Axes
-      Radius: 0.100000001
+      Radius: 0.0199999996
       Reference Frame: <Fixed Frame>
-      Value: false
+      Value: true
     - Class: rviz/Marker
       Enabled: true
-      Marker Topic: /athena/marker
+      Marker Topic: /visualization_marker
       Name: Marker
       Namespaces:
-        Hello: true
-        name_Hello: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -249,25 +250,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.92601228
+      Distance: 1.82907605
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0140375365
-        Y: -0.00191986561
-        Z: 0.141525745
+        X: 0.115931973
+        Y: -0.0278841164
+        Z: 0.238914743
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.429797173
+      Pitch: 0.889797628
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.85404253
+      Yaw: 3.04905033
     Saved: ~
 Window Geometry:
   Displays:
